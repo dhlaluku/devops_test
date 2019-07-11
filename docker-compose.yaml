@@ -1,0 +1,18 @@
+version: '3'
+services: 
+  airports:
+    build: 
+      context: ./airports
+      dockerfile: "Dockerfile"
+    image: airports
+    ports: 
+      - 8000:8000
+    volumes: 
+      - ./airports:/opt
+  countries:
+    build: 
+      context: ./countries
+      dockerfile: "Dockerfile"
+    image: countries
+    ports: 
+      - 8080:8080
