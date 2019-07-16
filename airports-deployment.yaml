@@ -10,8 +10,7 @@ metadata:
   name: airports
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
@@ -30,12 +29,5 @@ spec:
         ports:
         - containerPort: 8000
         resources: {}
-        volumeMounts:
-        - mountPath: /opt
-          name: airports-claim0
       restartPolicy: Always
-      volumes:
-      - name: airports-claim0
-        persistentVolumeClaim:
-          claimName: airports-claim0
 status: {}

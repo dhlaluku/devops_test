@@ -7,8 +7,6 @@ services:
     image: dhlaluku/devops:airports
     ports: 
       - 8000:8000
-    volumes: 
-      - ./airports:/opt
     env_file: 
       - .env
     environment: 
