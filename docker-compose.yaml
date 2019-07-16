@@ -4,15 +4,32 @@ services:
     build: 
       context: ./airports
       dockerfile: "Dockerfile"
-    image: airports
+    image: dhlaluku/devops:airports
     ports: 
       - 8000:8000
     volumes: 
       - ./airports:/opt
+    env_file: 
+      - .env
+    environment: 
+      - APP_JAR=airports-assembly-1.0.1.jar
+
   countries:
     build: 
       context: ./countries
       dockerfile: "Dockerfile"
-    image: countries
+    image: dhlaluku/devops:countries
     ports: 
       - 8080:8080
+
+  mynginx:
+    build: 
+      context: ./mynginx
+      dockerfile: "Dockerfile"
+    image: dhlaluku/devops:mynginx
+    ports:
+      - 80:80
+      - 443:443
+    links: 
+      - airports
+      - countries

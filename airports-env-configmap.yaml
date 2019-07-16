@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  APP_JAR: airports-assembly-1.0.1.jar
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: airports-env
+  name: airports-env

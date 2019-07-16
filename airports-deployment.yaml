@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.17.0 (a74acad)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: airports
+  name: airports
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: airports
+    spec:
+      containers:
+      - env:
+        - name: APP_JAR
+          valueFrom:
+            configMapKeyRef:
+              key: APP_JAR
+              name: airports-env
+        image: dhlaluku/devops:airports
+        name: airports
+        ports:
+        - containerPort: 8000
+        resources: {}
+        volumeMounts:
+        - mountPath: /opt
+          name: airports-claim0
+      restartPolicy: Always
+      volumes:
+      - name: airports-claim0
+        persistentVolumeClaim:
+          claimName: airports-claim0
+status: {}

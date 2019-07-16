@@ -1,12 +1,5 @@
-# SlashTEC interview-test (Bayport) 
+
 # This has been borrowed from another assessment.
-
-We’d like to invite you to do the # DevOps technical assignment​ as discussed during your interview. 
-
-This repo contains the assignment and should contain all the information you need​
-
-
-This is the assessment:
 
 
 DevOps technical assignment
